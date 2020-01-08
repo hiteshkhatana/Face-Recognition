@@ -11,4 +11,4 @@ Requirement:-
 (2) Run building_model.py to build your model(a file named "project_model.h5" is created after model is completed)
 
 (3) Now initial.py can be run to identify the face 
-(By pressing 'c' keyword , a photo will be clicked and recognise it with the help of saved model.)
+(By pressing 'c' keyword , a photo will be clicked and recognised with the help of saved model.)
