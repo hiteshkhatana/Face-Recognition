@@ -33,21 +33,16 @@ x_train,x_test,y_train,y_test = train_test_split(factors,identity,test_size=.2, 
 def model(X_train,X_test,y_train,y_test):
 
 
-#normalizing the data
 	X_train = X_train.astype('float32')
 	X_test = X_test.astype('float32')
 	X_train = X_train / 255.0
 	X_test = X_test / 255.0
 
-#one hot encoding the target outputs
 	y_train = np_utils.to_categorical(y_train)
 	y_test = np_utils.to_categorical(y_test)
 	class_num = y_test.shape[1]
 
-#creating model
 	model = Sequential()
-
-#adding layers
 	model.add(Conv2D(32, (3, 3), input_shape=X_train.shape[1:], padding='same'))
 	model.add(Activation('relu'))
 	model.add(Dropout(0.2))
@@ -84,7 +79,6 @@ def model(X_train,X_test,y_train,y_test):
 	scores = model.evaluate(X_test, y_test, verbose=0)
 	print("Your model is built with Accuracy: %.2f%%" % (scores[1]*100))
 
-#to save model
 
 	from keras.models import load_model 
 	model.save('project1_model.h5')
