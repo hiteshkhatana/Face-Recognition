@@ -20,8 +20,8 @@ def Identify(gray):
 	model = load_model('project1_model.h5')
 
 	gray = cv2.resize(gray,(0,0),fx=0.5,fy=0.5)
-	save_img(r"C:\Users\Hitesh khatana\Desktop\python programs\hitesh\output.jpg" ,gray , target_size = (32,32) )
-	load = image.load_img(r"C:\Users\Hitesh khatana\Desktop\python programs\hitesh\output.jpg" , target_size = (32,32))
+	save_img("output.jpg" ,gray , target_size = (32,32) )
+	load = image.load_img("output.jpg" , target_size = (32,32))
 	arr = img_to_array(load)
 	arr = arr.flatten()
 	arr = arr.reshape(32,32,3)
@@ -31,11 +31,11 @@ def Identify(gray):
 	result = model.predict(test_image)
 	print(result)
 
-	with open(r"C:\Users\Hitesh khatana\Desktop\python programs\hitesh\testfile.txt" ,"r") as f:
+	with open("testfile.txt" ,"r") as f:
 		lines = f.readlines()
 	li = list(lines)
 	i = np.argmax(result[0])
-	print(li[i])
+	print(li[i+1])
 
 
 
