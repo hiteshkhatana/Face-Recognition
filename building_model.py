@@ -13,7 +13,7 @@ from keras.preprocessing.image import array_to_img
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
-data = pd.read_csv(r"C:\Users\Hitesh khatana\Desktop\python programs\data3.csv")
+data = pd.read_csv("data.csv")
 
 columns_to_drop = ['Unnamed: 0','Identity']
 factors = data.drop(columns_to_drop , axis = 1)
@@ -27,7 +27,7 @@ identity = encoder.fit_transform(identity)
 
 factors = np.array(factors)
 factors = factors.flatten()
-factors = factors.reshape(int(factors.shape[0]/3072),32,32,3)
+factors = factors.reshape(int(data.shape[0]),32,32,3)
 x_train,x_test,y_train,y_test = train_test_split(factors,identity,test_size=.2, random_state = 6)
 
 def model(X_train,X_test,y_train,y_test):
