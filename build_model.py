@@ -33,7 +33,8 @@ folders = glob('train/*')
 
 # our layers - you can add more if you want
 x = Flatten()(vgg.output)
-# x = Dense(1000, activation='relu')(x)
+x = Dense(256, activation='relu')(x)
+x = Dense(256, activation='relu')(x)
 prediction = Dense(len(folders), activation='softmax')(x)
 
 # create a model object
